@@ -7,6 +7,7 @@ namespace ControleGastos.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+// Controlador que calcula os totais financeiros por pessoa e no geral.
 public class SummaryController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -16,6 +17,7 @@ public class SummaryController : ControllerBase
         _context = context;
     }
 
+    // Retorna o resumo com receitas, despesas e saldo de cada pessoa e do total da residência.
     [HttpGet]
     public async Task<ActionResult<SummaryDto>> GetSummary()
     {

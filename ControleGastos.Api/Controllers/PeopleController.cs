@@ -8,6 +8,7 @@ namespace ControleGastos.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+// Controlador responsável por cadastrar, listar e remover pessoas da aplicação.
 public class PeopleController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -17,6 +18,7 @@ public class PeopleController : ControllerBase
         _context = context;
     }
 
+    // Retorna todas as pessoas cadastradas em ordem alfabética.
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PersonDto>>> GetAll()
     {
@@ -33,6 +35,7 @@ public class PeopleController : ControllerBase
         return Ok(people);
     }
 
+    // Busca uma pessoa específica pelo identificador.
     [HttpGet("{id}")]
     public async Task<ActionResult<PersonDto>> GetById(int id)
     {
@@ -50,6 +53,7 @@ public class PeopleController : ControllerBase
         });
     }
 
+    // Cria uma nova pessoa no cadastro.
     [HttpPost]
     public async Task<ActionResult<PersonDto>> Create([FromBody] CreatePersonDto dto)
     {
@@ -77,6 +81,7 @@ public class PeopleController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = person.Id }, response);
     }
 
+    // Remove uma pessoa do sistema.
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {

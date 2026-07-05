@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ControleGastos.Api.Data;
 
+// Classe de contexto do Entity Framework responsável pelo acesso ao banco da aplicação.
 public class AppDbContext : DbContext
 {
     // Contexto principal do Entity Framework para acessar pessoas e transações.

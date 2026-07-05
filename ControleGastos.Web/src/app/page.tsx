@@ -44,6 +44,8 @@ export default function HomePage() {
   const [transactionPersonId, setTransactionPersonId] = useState('');
   const [message, setMessage] = useState('');
 
+  // Estado para mostrar mensagens de sucesso ou erro na interface.
+
   // Formata a entrada de valor para moeda, facilitando a digitação no formulário.
   const formatCurrencyInput = (value: string) => {
     const onlyNumbers = value.replace(/\D/g, '');
@@ -52,6 +54,7 @@ export default function HomePage() {
     return numericValue.replace('.', ',');
   };
 
+  // Converte o valor digitado para o formato de moeda brasileiro antes de enviar à API.
   const handleValueChange = (value: string) => {
     setTransactionValue(formatCurrencyInput(value));
   };
@@ -69,6 +72,7 @@ export default function HomePage() {
     if (summaryResponse.ok) setSummary(await summaryResponse.json());
   };
 
+  // Carrega as informações iniciais ao abrir a página.
   useEffect(() => {
     loadData();
   }, []);

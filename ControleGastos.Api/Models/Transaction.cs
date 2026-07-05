@@ -1,5 +1,6 @@
 namespace ControleGastos.Api.Models;
 
+// Modelo que representa uma transação financeira vinculada a uma pessoa.
 public class Transaction
 {
     // Identificador único da transação.

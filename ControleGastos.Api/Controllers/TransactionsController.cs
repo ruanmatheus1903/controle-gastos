@@ -8,6 +8,7 @@ namespace ControleGastos.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+// Controlador responsável por registrar e consultar transações financeiras.
 public class TransactionsController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -17,6 +18,7 @@ public class TransactionsController : ControllerBase
         _context = context;
     }
 
+    // Lista todas as transações com o nome da pessoa relacionada.
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TransactionDto>>> GetAll()
     {
@@ -37,6 +39,7 @@ public class TransactionsController : ControllerBase
         return Ok(transactions);
     }
 
+    // Cria uma nova transação, validando a pessoa e as regras de negócio.
     [HttpPost]
     public async Task<ActionResult<TransactionDto>> Create([FromBody] CreateTransactionDto dto)
     {
