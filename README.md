@@ -51,3 +51,9 @@ A API ficará disponível em http://localhost:5224 e o frontend em http://localh
 ##  Persistência
 
 Os dados são armazenados em SQLite, então continuam salvos mesmo após reiniciar a aplicação.
+
+## Erro de npm 
+
+Se estiver no Windows PowerShell e o comando npm der erro de execução de scripts, rode:
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
